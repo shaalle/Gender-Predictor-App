@@ -1,3 +1,5 @@
 # Gender-Predictor-App
 This project uses genderize.io API to fetch the searched name's gender.
-![image](https://user-images.githubusercontent.com/58549282/188309019-35e56bb6-06d1-474b-99b6-f1022ce04823.png)
+
+
+![crop](https://user-images.githubusercontent.com/58549282/188309219-d918a871-4a2d-4114-9da2-cac08a73d70e.png)
