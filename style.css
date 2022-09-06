@@ -10,7 +10,7 @@ h2 {
     margin-top: 50px;
     text-align: center;
 }
-#search, #btnSearch {
+#search, #btnSearch,#btnClear {
     padding: 10px 15px;
     font-size: 20px;
     border-radius: 4px;
@@ -34,8 +34,17 @@ input:focus {
     background-color: lightgreen;
     border: 1px solid transparent;
 }
-i {
+#btnClear {
+  cursor: pointer;
+  background-color: red;
+  border: 1px solid transparent;
+}
+#btnSearch i {
     color:maroon;
+}
+#btnClear i {
+  padding: 10;
+  color: #2a324b;
 }
 
 /* table design code */

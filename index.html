@@ -13,36 +13,21 @@
 <body>
     <h2>Lets guess your gender? Tell us your name please.</h2>
     <div class="container">
-    <input type="text" name="" id="search">
-    <button id="btnSearch" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <input type="text" name="" id="search" placeholder="Enter your name..." >
+    <button id="btnSearch" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>&nbsp;&nbsp;&nbsp;
+    <button id="btnClear" type="submit"><i class="fa fa-trash"></i></button>
     </div>
-    <table id="tblGender">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Probability</th>
-            <th>count</th>
-          </tr>
-        </thead>
-    <tbody>
+    <table >
+      <thead>
         <tr>
-          <td><a href="#">faarah</a></td>
-          <td>male</td>
-          <td>0.69</td>
-          <td>
-            <p class="status status-unpaid">26</p>
-          </td>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Probability</th>
+          <th>count</th>
         </tr>
-        <tr>
-          <td><a href="#">xalimo</a></td>
-          <td>female</td>
-          <td>1</td>
-          <td>
-            <p class="status status-paid">7</p>
-          </td>
-        </tr>
-      </tbody>
+      </thead>
+    <tbody id="tbodyGender">
+      </tbody> 
     </table>
     <script src="./app.js"></script>
 </body>

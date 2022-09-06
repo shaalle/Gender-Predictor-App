@@ -1,26 +1,43 @@
-// Gender Predictor Api
+// Gender Predictor Api Link/URL
 const BASE_URL = `https://api.genderize.io?name=`
+// these variables help us store/get values from the html elements
 const inputSearch = document.getElementById('search')
 const searchBtn = document.getElementById('btnSearch')
-const tblGender = document.getElementById('tblGender')
-
+const clearBtn = document.getElementById('btnClear')
+const tbodyGender = document.getElementById('tbodyGender')
+// this is the function that finds the searched name from the API
 const getSearchedGender = (name) => {
     fetch(`${BASE_URL}${name}`)
      .then(response => response.json())
      .then(json => {
-        console.log(json)
-        tblGender.innerHTML += `
-      <tbody>
-        <tr>
-          <td><a href="#">${json.name}</a></td>
-          <td>${json.gender}</td>
-          <td>${json.probability}</td>
-          <td>
-          <p class="status status-paid">${json.count}</p>
-          </td>
-        </tr>
-      </tbody>`
+        tbodyGender.innerHTML += `
+         <tr>
+           <td><a href="#">${json.name}</a></td>
+           <td>${json.gender}</td>
+           <td>${json.probability}</td>
+           <td>
+           <p class="status status-paid">${json.count}</p>
+           </td>
+         </tr>`
+      // saves the searched name to the localstorage memory
+      localStorage.setItem('table', tbodyGender.innerHTML)
      })
+  } 
+  // retrieves back the saved data after refreshing or closing the page
+  tbodyGender.innerHTML = localStorage.getItem('table')
+  // shows data to the table after clicking the search button
+    searchBtn.onclick = () => {
+      // checking if the user given input or not
+      inputSearch.value === '' ? alert('Fadlan soo gali magac👀') : getSearchedGender(inputSearch.value)
+    }
+  // clears the dom after clicking the clear/delete button
+  clearBtn.onclick = () => {
+    if(tbodyGender.innerHTML === ''){
+      alert('Waxba Kuma jirin Markii horeba ee dhesha ciyaarta ka dhaaf😒')
+    }else{
+      alert('Waad Tirtay xogtii ku jirtay Table-kan😊')
+      localStorage.clear()
+      inputSearch.innerText = ''
+      window.location.reload();
+    }
   }
-
-  searchBtn.onclick = () => getSearchedGender(inputSearch.value)
