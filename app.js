@@ -28,16 +28,35 @@ const getSearchedGender = (name) => {
   // shows data to the table after clicking the search button
     searchBtn.onclick = () => {
       // checking if the user given input or not
-      inputSearch.value === '' ? alert('Fadlan soo gali magac👀') : getSearchedGender(inputSearch.value)
+      //inputSearch.value === '' ? alert('Fadlan soo gali magac👀') : getSearchedGender(inputSearch.value)
+      checkDuplicateEntries()
     }
   // clears the dom after clicking the clear/delete button
   clearBtn.onclick = () => {
     if(tbodyGender.innerHTML === ''){
       alert('Waxba Kuma jirin Markii horeba ee dhesha ciyaarta ka dhaaf😒')
-    }else{
-      alert('Waad Tirtay xogtii ku jirtay Table-kan😊')
-      localStorage.clear()
-      inputSearch.innerText = ''
-      window.location.reload();
+    }else if(confirm('Ma Hubtaa inaa Tireysid Xogtaan?')){
+        alert('Waad Tirtay xogtii ku jirtay Table-kan😊')
+        localStorage.clear()
+        inputSearch.innerText = ''
+        window.location.reload();
     }
   }
+  
+  const checkDuplicateEntries = () => {
+  let found = false;
+  document.querySelectorAll("#tbodyGender td").forEach(cell => {
+            if(cell.innerText === inputSearch.value){
+                 found = true
+            }
+        })
+            if(found === true){
+              //document.getElementById('search').style.fontWeight = 'bold'
+              alert(`${inputSearch.value} Horey Ayaad uso galisay ee Magac cusub so gali👁`)
+            }
+            else if(inputSearch.value === '')
+              alert('Fadlan soo gali magac👀')
+            else
+              getSearchedGender(inputSearch.value)
+  }
+    
